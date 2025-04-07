@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizytówka Firmy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+    <div id="app" class="card text-center mb-3" style="width: 18rem;" >
+        <div class="card-body">
+            <p class="card-text">Nazwa: {{ name }}</p>
+            <p class="card-text">Adres: {{ address.street }}, {{ address.postalCode }} {{ address.city }}</p>
+            <p class="card-text">Kontakt: {{ phone1 }}, {{ phone2 }}</p>
+            <a :href="website">http://www.unikpol.pl</a>
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    name: 'UNIKPOL S.A.',
+                    address: {
+                        street: 'ul. Ukryta 5',
+                        postalCode: '02-114',
+                        city: 'Rawa Mazowiecka'
+                    },
+                    phone1: 'tel. 22 345 90 21',
+                    phone2: '888 213 992',
+                    website: 'http://www.unikpol.pl'
+                }
+            }
+        }).mount('#app');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>

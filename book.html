@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj książkę</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Dodaj nową książkę</h1>
+        <form v-on:submit.prevent="saveBook">
+            <div>
+                <label for="title">Tytuł książki:</label>
+                <input type="text" v-model="book.title" required>
+            </div>
+            <div    >
+                <label for="authorName">Author Name:</label>
+                <input type="text" v-model="book.authorName" required>
+            </div>
+            <div    >
+                <label for="authorSurname">Author Surname:</label>
+                <input type="text"v-model="book.authorSurname" required>
+            </div>
+            <button type="submit">Zapisz</button>
+        </form>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    book: {
+                        title: '',
+                        author: ''
+                    }
+                }
+            },
+            methods: {
+                saveBook() {
+                    console.log('Zapisano książkę:');
+                    console.log('Tytuł:', this.book.title);
+                    console.log('Autor:', this.book.authorName, this.book.authorSurname);
+                    
+                    this.book.title = '';
+                    this.book.authorName = '',
+                    this.book.authorSurname = '';
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

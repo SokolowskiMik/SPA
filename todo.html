@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista zadań</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <h4>DO WYKONANIA</h2>
+            <li v-for="task in tasks">
+                {{ task }}
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    tasks: [
+                        "Purchase two tickets to cinema",
+                        "Buy groceries",
+                        "Finish project",
+                        "Make  dinner for tomorrow"
+                    ]
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

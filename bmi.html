@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Kalkulator BMI</h1>
+        <div>
+            <label for="height">Wzrost (cm):</label>
+            <input type="number" id="height" v-model="height">
+        </div>
+        <div>
+            <label for="weight">Waga (kg):</label>
+            <input type="number" id="weight" v-model="weight">
+        </div>
+
+        <div v-if="bmi">
+            <h3>Twój wskaźnik BMI:</h3>
+            <div>{{ bmi }}</div>
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    height: null,
+                    weight: null
+                }
+            },
+            computed: {
+                bmi() {
+                    if (!this.height || !this.weight) return null;
+                    const heightInMeters = this.height / 100;
+                    return Math.round((this.weight / (heightInMeters * heightInMeters)) * 100) / 100;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

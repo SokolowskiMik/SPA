@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragon</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        .receipt-title {
+            font-weight: bold;
+        }
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <div class="receipt-title">RECEIPT</div>
+            <div>-----------------</div>
+            <div>Product: {{ productName }}</div>
+            <div>Unit Price: {{ unitPrice }} zł</div>
+            <div>Quantity: {{ quantity }}</div>
+            <div>Amount: {{ amount }} zł</div>
+            <div>VAT Tax Rate: {{ vatRate }}%</div>
+            <div>=================</div>
+            <div class="total">Total: {{ total }} zł</div>
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    productName: 'book',
+                    unitPrice: 17,
+                    quantity: 3,
+                    amount: 51,
+                    vatRate: 23,
+                    total: 62.73
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
